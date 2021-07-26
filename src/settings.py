@@ -11,6 +11,7 @@ SETTINGS_FILE_PATH = os.path.join(BASE_DIR, 'settings.txt')
 class Settings(object):
     """Settings Class"""
     def __init__(self):
+        self._dict = dict()
         self._load_file()
 
     def _load_file(self):
@@ -20,3 +21,7 @@ class Settings(object):
             line = line.strip()
             key, value = line.split('=')
             setattr(self, key, value)
+            self._dict[key] = value
+
+    def as_dict(self):
+        return self._dict
