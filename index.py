@@ -21,18 +21,26 @@ def print_menu():
     print('\n'.join(menu))
 
 
+def dispatcher(answer):
+    if answer == '1':
+        robot.get(s.url)
+    elif answer == '2':
+        data = s.as_dict()
+        robot.setupForm(data)
+    elif answer == 'x':
+        sys.exit()
+    else:
+        print('Hmm?')
+
+
 def main():
     while True:
+        # print menu to user
         print_menu()
+        # get answer from user
         answer = input()
-        if answer == '1':
-            robot.get(s.url)
-        elif answer == '2':
-            robot.setupForm({})
-        elif answer == 'x':
-            sys.exit()
-        else:
-            print('Hmm?')
+        # dispatch the answer
+        dispatcher(answer)
 
 
 if __name__ == '__main__':
