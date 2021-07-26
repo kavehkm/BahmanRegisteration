@@ -5,11 +5,11 @@ from selenium import webdriver
 
 
 class Robot(object):
-    def __init__(self, browser, delay):
+    def __init__(self, browser, driver_path, delay):
         if browser == 'firefox':
-            self._driver = webdriver.Firefox()
+            self._driver = webdriver.Firefox(executable_path=driver_path)
         elif browser == 'chrome':
-            self._driver = webdriver.Chrome()
+            self._driver = webdriver.Chrome(executable_path=driver_path)
         # select option delay
         self._delay = delay
 
