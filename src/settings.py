@@ -15,7 +15,7 @@ class Settings(object):
         self._load_file()
 
     def _load_file(self):
-        with open(SETTINGS_FILE_PATH, 'rt') as f:
+        with open(SETTINGS_FILE_PATH, encoding='utf-8') as f:
             lines = f.readlines()
         for line in lines:
             line = line.strip()
