@@ -1,5 +1,5 @@
 browser=firefox
-driver_path=./drivers/geckodriver
+delay=0.2
 url=https://bahman.iranecar.com
 nam=x
 nam_khanevadegi=x

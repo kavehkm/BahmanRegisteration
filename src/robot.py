@@ -5,11 +5,13 @@ from selenium import webdriver
 
 
 class Robot(object):
-    def __init__(self, browser, driver_path):
+    def __init__(self, browser, delay):
         if browser == 'firefox':
-            self._driver = webdriver.Firefox(executable_path=driver_path)
+            self._driver = webdriver.Firefox()
         elif browser == 'chrome':
-            self._driver = webdriver.Chrome(executable_path=driver_path)
+            self._driver = webdriver.Chrome()
+        # select option delay
+        self._delay = delay
 
     def _fill_input(self, name, value):
         elem = self._driver.find_element_by_name(name)
@@ -21,7 +23,7 @@ class Robot(object):
             if option.text == value:
                 option.click()
                 break
-        time.sleep(0.2)
+        time.sleep(self._delay)
 
     def get(self, url):
         self._driver.get(url)

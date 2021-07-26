@@ -9,7 +9,7 @@ from src.robot import Robot
 s = Settings()
 
 # create robot
-robot = Robot(s.browser, s.driver_path)
+robot = Robot(s.browser, float(s.delay))
 
 
 def print_menu():
