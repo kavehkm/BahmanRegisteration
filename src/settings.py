@@ -11,6 +11,12 @@ SETTINGS_FILE_PATH = os.path.join(BASE_DIR, 'settings.txt')
 DRIVERS_PATH = os.path.join(BASE_DIR, 'drivers')
 
 
+LICENSE_PATH = os.path.join(BASE_DIR, 'license.txt')
+
+
+SALT = 'bury me aG'
+
+
 class Settings(object):
     """Settings Class"""
     def __init__(self):

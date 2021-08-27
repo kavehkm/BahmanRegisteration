@@ -133,3 +133,7 @@ settings.txt
 
 # pycharm configs
 .idea/
+
+
+# license
+license.txt
