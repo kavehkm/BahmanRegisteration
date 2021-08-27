@@ -1,15 +1,15 @@
 # standard
 import sys
-import os
 # internal
-from src.settings import Settings
+from src import settings
 from src.robot import Robot
 
+
 # create settings object
-s = Settings()
+s = settings.Settings()
 
 # create robot
-robot = Robot(s.browser, s.driver_path, float(s.delay))
+robot = Robot(s.browser, settings.DRIVERS_PATH, float(s.delay))
 
 
 def print_menu():

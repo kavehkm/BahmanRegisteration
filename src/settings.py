@@ -8,6 +8,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SETTINGS_FILE_PATH = os.path.join(BASE_DIR, 'settings.txt')
 
 
+DRIVERS_PATH = os.path.join(BASE_DIR, 'drivers')
+
+
 class Settings(object):
     """Settings Class"""
     def __init__(self):

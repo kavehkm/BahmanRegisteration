@@ -1,17 +1,34 @@
 # standard
+import os
+import sys
 import time
+import platform
 # selenium
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 
 
 class Robot(object):
-    def __init__(self, browser, driver_path, delay):
-        if browser == 'firefox':
-            self._driver = webdriver.Firefox(executable_path=driver_path)
-        elif browser == 'chrome':
-            self._driver = webdriver.Chrome(executable_path=driver_path)
+    def __init__(self, browser, drivers_path, delay):
+        # get driver
+        self._driver = self.driver(browser, drivers_path)
         # select option delay
         self._delay = delay
+
+    @staticmethod
+    def driver(browser, drivers_path):
+        ops = 'windows' if sys.platform == 'win32' else 'linux'
+        ext = '.exe' if sys.platform == 'wind32' else ''
+        arch = '64' if platform.machine().endswith('64') else '32'
+        if browser == 'firefox':
+            executable = os.path.join(drivers_path, 'firefox_{}_{}{}'.format(ops, arch, ext))
+            driver = webdriver.Firefox(executable_path=executable)
+        else:
+            executable = os.path.join(drivers_path, 'chrome_{}{}'.format(ops, ext))
+            options = Options()
+            options.add_argument("--log-level=3")
+            driver = webdriver.Chrome(executable_path=executable, options=options)
+        return driver
 
     def _fill_input(self, name, value):
         elem = self._driver.find_element_by_name(name)
