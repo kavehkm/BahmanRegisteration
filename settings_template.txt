@@ -33,3 +33,4 @@ shomareh_shaba=x
 hamrah=x
 sabet=x
 email=x
+govahiname=x

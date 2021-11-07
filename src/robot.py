@@ -18,7 +18,7 @@ class Robot(object):
     @staticmethod
     def driver(browser, drivers_path):
         ops = 'windows' if sys.platform == 'win32' else 'linux'
-        ext = '.exe' if sys.platform == 'wind32' else ''
+        ext = '.exe' if sys.platform == 'win32' else ''
         arch = '64' if platform.machine().endswith('64') else '32'
         if browser == 'firefox':
             executable = os.path.join(drivers_path, 'firefox_{}_{}{}'.format(ops, arch, ext))
@@ -69,7 +69,7 @@ class Robot(object):
             'mobile_number': data['hamrah'],
             'phone_number': data['sabet'],
             'email': data['email'],
-
+            'certificate_number': data['govahiname']
         }
         selects = {
             'issuance_place_province': data['mahal_sodoor_ostan'],
